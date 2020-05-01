@@ -1,0 +1,11 @@
+{
+  "name": "graphql-hacker-news-clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/strange1120/graphql-hacker-news-clone.git",
+  "author": "Sarah Strange <strange1120@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  }
+}
