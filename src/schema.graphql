@@ -7,36 +7,36 @@ type Mutation {
     post(url: String!, description: String!): Link!
     signup(email: String!, password: String!, name:String!): AuthPayload
     login(email:String!, password: String!): AuthPayload
-}
-
-type Query {
-  # Fetch a single link by its `id`
-  link(id: ID!): Link
-}
-
-type Mutation {
-  # Update a link
-  updateLink(id: ID!, url: String, description: String): Link
-
-  # Delete a link
-  deleteLink(id: ID!): String!
+    vote(linkId: ID!): Vote
 }
 
 type Link {
-    id: ID!
-    description: String!
-    url: String!
-    postedBy: User
+  id: ID!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
 }
 
 type AuthPayload {
-    token: String
-    user: User
+  token: String
+  user: User
 }
 
 type User {
-    id: ID!
-    name: String!
-    email: String!
-    links: [Link!]!
+  id: ID!
+  name: String!
+  email: String!
+  links: [Link!]!
+}
+
+type Subscription {
+    newLink: Link
+    newVote: Vote
+}
+
+type Vote {
+  id: ID!
+  link: Link!
+  user: User!
 }
